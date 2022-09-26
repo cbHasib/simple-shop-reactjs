@@ -5,6 +5,8 @@ import "./OrderReview.css";
 
 const OrderReview = ({cart, setCart}) => {
 
+  document.title = 'Order Review';
+
   const removeCart = () =>{
     setCart([]);
     deleteShoppingCart();

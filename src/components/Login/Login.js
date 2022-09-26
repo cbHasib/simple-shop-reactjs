@@ -1,10 +1,12 @@
-import React from 'react';
-import './Login.css'
+import React from "react";
+import "./Login.css";
 
 const Login = () => {
-    return (
-        <div className="login-container">
-             <div className="signup-card">
+  document.title = "Login Your Account";
+
+  return (
+    <div className="login-container">
+      <div className="signup-card">
         <h2>Login</h2>
 
         <form action="">
@@ -15,11 +17,10 @@ const Login = () => {
           <label for="password">Password</label>
           <br />
           <input type="password" id="password" name="password" />
-          
         </form>
         <button className="btn-signup">Login</button>
         <p className="login-text">
-        New to Ema-john? <a href="/signup">Create New Account</a>
+          New to Ema-john? <a href="/signup">Create New Account</a>
         </p>
 
         <div className="or-text">
@@ -28,12 +29,10 @@ const Login = () => {
           <hr />
         </div>
 
-        <button className="btn-google">
-          Continue with Google
-        </button>
+        <button className="btn-google">Continue with Google</button>
       </div>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default Login;

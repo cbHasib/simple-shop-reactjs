@@ -1,9 +1,11 @@
 import React from "react";
 import "./SignUp.css";
 
-import google from '../../images/google.svg'
+import google from "../../images/google.svg";
 
 const SignUp = () => {
+  document.title = "Register a New Account";
+
   return (
     <div className="signup-container">
       <div className="signup-card">

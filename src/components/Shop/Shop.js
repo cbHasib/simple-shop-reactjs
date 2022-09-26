@@ -7,6 +7,10 @@ import Product from "../Product/Product";
 import "./Shop.css";
 
 const Shop = ({cart, setCart, setMenu}) => {
+
+  document.title = 'Shop Your Favorite One';
+
+
   const [products, setProducts] = useState([]);
 
 
