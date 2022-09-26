@@ -1,0 +1,14 @@
+.error-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    font-size: 30px;
+    color: #2A414F;
+    font-weight: 300;
+    gap: 20px;
+}
+.error-line{
+    color: var(--primary-color);
+    margin: 0;
+}

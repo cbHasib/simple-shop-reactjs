@@ -1,0 +1,44 @@
+.sideCart{
+    position: sticky;
+    top: 10px;
+}
+.cart-info h4{
+    color: #1C2B35;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.cart-info p{
+    color: #2A414F;
+    font-size: 17px;
+}
+.cart-info h5{
+    color: #0E161A;
+    font-size: 20px;
+    font-weight: 500;
+    margin: 20px 0;
+}
+.cart-action{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 40px;
+}
+.cart-action button{
+    width: 100%;
+    padding: 13px;
+    color: white;
+    transition-duration: 400ms;
+}
+
+.cart-action button:hover{
+    background-color: rgb(0, 0, 0);
+    background-blend-mode: darken;
+}
+
+.clear-cart{
+    background-color: #FF3030;
+}

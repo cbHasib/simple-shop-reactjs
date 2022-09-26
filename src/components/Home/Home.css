@@ -1,0 +1,26 @@
+.home-container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 90vh;
+}
+
+.home-container img{
+    width: 350px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-light-yellow-color);
+}
+
+.home-container .save-percent{
+    color: var(--primary-color);
+}
+.home-container h2{
+    color: #1C2B35;
+    font-size: 45px;
+}
+
+.home-container .subheading{
+    color: #2A414F;
+    font-size: 17px;
+    margin-bottom: 40px;
+}

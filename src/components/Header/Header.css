@@ -1,0 +1,36 @@
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--nav-shadow);
+    padding: 10px 5%;
+    background-color: var(--dark-navyBlue-color);
+    z-index: 999;
+}
+
+.site-identity{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.site-identity img{
+    height: 50px;
+}
+
+.menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    font-size: 17px;
+}
+
+.menu a{
+    text-decoration: none;
+    color: var(--white-color);
+}
+.menu a:hover{
+    color: var(--primary-color);
+}
