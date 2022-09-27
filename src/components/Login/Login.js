@@ -1,7 +1,7 @@
 import React from "react";
 import "./Login.css";
 
-const Login = () => {
+const Login = ({setMenu}) => {
   document.title = "Login Your Account";
 
   return (
@@ -20,7 +20,10 @@ const Login = () => {
         </form>
         <button className="btn-signup">Login</button>
         <p className="login-text">
-          New to Ema-john? <a href="/signup">Create New Account</a>
+          New to Ema-john? <a onClick={(e) => {
+            setMenu("SignUp");
+            e.preventDefault();
+          }} href="/">Create New Account</a>
         </p>
 
         <div className="or-text">

@@ -3,7 +3,7 @@ import "./SignUp.css";
 
 import google from "../../images/google.svg";
 
-const SignUp = () => {
+const SignUp = ({setMenu}) => {
   document.title = "Register a New Account";
 
   return (
@@ -30,7 +30,10 @@ const SignUp = () => {
         </form>
         <button className="btn-signup">Sign Up</button>
         <p className="login-text">
-          Already have an account? <a href="/login">Login</a>
+          Already have an account? <a onClick={(e) => {
+            setMenu("Login");
+            e.preventDefault();
+          }} href="/">Login</a>
         </p>
 
         <div className="or-text">

@@ -28,10 +28,10 @@ function App() {
         menu==='OrderReview' && <OrderReview cart={cart} setCart={setCart}></OrderReview>
       }
       {
-        menu==='Login' && <Login></Login>
+        menu==='Login' && <Login setMenu={setMenu}></Login>
       }
       {
-        menu==='SignUp' && <SignUp></SignUp>
+        menu==='SignUp' && <SignUp setMenu={setMenu}></SignUp>
       }
 
 
