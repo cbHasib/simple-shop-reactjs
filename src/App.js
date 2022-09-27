@@ -33,9 +33,7 @@ function App() {
       {
         menu==='SignUp' && <SignUp></SignUp>
       }
-      {
-        menu==='OrderReview' && <OrderReview cart={cart} setCart={setCart}></OrderReview>
-      }
+
 
       {
         menu==='ManageInventory' && <Error></Error>
