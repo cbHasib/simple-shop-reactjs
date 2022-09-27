@@ -1,18 +1,21 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { addToDb, getStoredCart } from "../../utilities/fakedb";
+import {
+  addToDb,
+  decreaseFromDb,
+  getStoredCart,
+  removeFromDb,
+} from "../../utilities/fakedb";
 import CartBar from "../CartBar/CartBar";
+import OrderReview from "../OrderReview/OrderReview";
 import Product from "../Product/Product";
 import "./Shop.css";
 
-const Shop = ({cart, setCart, setMenu}) => {
-
-  document.title = 'Shop Your Favorite One';
-
+const Shop = ({ cart, setCart, setMenu, menu }) => {
+  document.title = "Shop Your Favorite One";
 
   const [products, setProducts] = useState([]);
-
 
   useEffect(() => {
     fetch("products.json")
@@ -50,14 +53,53 @@ const Shop = ({cart, setCart, setMenu}) => {
     addToDb(product.id);
   };
 
+  const decreaseCartItem = (product) => {
+    let newCart = [];
+    const cartCheck = cart.find((item) => item.id === product.id);
+    const restProduct = cart.filter((item) => item.id !== product.id);
+    if (cartCheck.quantity !== 0) {
+      product.quantity = cartCheck.quantity - 1;
+      newCart = [...restProduct, cartCheck];
+    } else {
+      removeFromDb(product.id);
+      newCart = [...restProduct];
+    }
+
+    setCart(newCart);
+    decreaseFromDb(product.id);
+  };
+  const increaseCartItem = (product) => {
+    let newCart = [];
+    const cartCheck = cart.find((item) => item.id === product.id);
+    const restProduct = cart.filter((item) => item.id !== product.id);
+
+    product.quantity = cartCheck.quantity + 1;
+    newCart = [...restProduct, cartCheck];
+
+    setCart(newCart);
+    addToCart(product);
+  };
+
   return (
-    <div className="shop-container">
-      <div>
-        <Product products={products} addToCart={addToCart} />
-      </div>
-      <aside className="cart-sidebar">
-        <CartBar setMenu={setMenu} cart={cart} setCart={setCart} />
-      </aside>
+    <div>
+      {menu === "OrderReview" && (
+        <OrderReview
+          cart={cart}
+          setCart={setCart}
+          increaseCartItem={increaseCartItem}
+          decreaseCartItem={decreaseCartItem}
+        ></OrderReview>
+      )}
+      {menu === "Shop" && (
+        <div className="shop-container">
+          <div>
+            <Product products={products} addToCart={addToCart} />
+          </div>
+          <aside className="cart-sidebar">
+            <CartBar setMenu={setMenu} cart={cart} setCart={setCart} />
+          </aside>
+        </div>
+      )}
     </div>
   );
 };

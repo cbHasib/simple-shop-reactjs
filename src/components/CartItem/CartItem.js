@@ -7,7 +7,7 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import noImage from "../../images/no-photo.jpg";
 import { removeFromDb } from "../../utilities/fakedb";
 
-const CartItem = ({ product, cart, setCart }) => {
+const CartItem = ({ product, cart, setCart, decreaseCartItem, increaseCartItem }) => {
   const { img, name, price, shipping, id, quantity } = product;
 
   const removeItemFromCart = (itemId) => {
@@ -15,6 +15,13 @@ const CartItem = ({ product, cart, setCart }) => {
     const restProduct = cart.filter((item) => item.id !== itemId);
     setCart(restProduct);
   };
+
+
+  const handleChange = e => {
+    console.log(e);
+    console.log({ inputValue: e.target.value });
+    this.onChange(e);
+};
 
   return (
     <div className="cart-item">
@@ -36,9 +43,9 @@ const CartItem = ({ product, cart, setCart }) => {
       </div>
       <div className="cart-item-action">
         <div className="item-action">
-          <button className="handleQuantity">-</button>
-          <input type="number" value={quantity}/>
-          <button className="handleQuantity">+</button>
+          <button className="handleQuantity" onClick={()=> decreaseCartItem(product)}>-</button>
+          <input type="number" value={quantity} onChange={(e)=> handleChange(e)} />
+          <button className="handleQuantity" onClick={()=> increaseCartItem(product)}>+</button>
         </div>
         <button className="remove-item" onClick={() => removeItemFromCart(id)}>
           <FontAwesomeIcon icon={faTrash} />
