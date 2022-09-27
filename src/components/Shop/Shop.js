@@ -60,7 +60,8 @@ const Shop = ({ cart, setCart, setMenu, menu }) => {
     if (cartCheck.quantity !== 0) {
       product.quantity = cartCheck.quantity - 1;
       newCart = [...restProduct, cartCheck];
-    } else {
+    } 
+    if(product.quantity === 0) {
       removeFromDb(product.id);
       newCart = [...restProduct];
     }
@@ -69,15 +70,7 @@ const Shop = ({ cart, setCart, setMenu, menu }) => {
     decreaseFromDb(product.id);
   };
   const increaseCartItem = (product) => {
-    let newCart = [];
-    const cartCheck = cart.find((item) => item.id === product.id);
-    const restProduct = cart.filter((item) => item.id !== product.id);
-
-    product.quantity = cartCheck.quantity + 1;
-    newCart = [...restProduct, cartCheck];
-
-    setCart(newCart);
-    addToCart(product);
+    addToCart(product)
   };
 
   return (

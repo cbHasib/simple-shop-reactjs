@@ -45,9 +45,10 @@
     background-color: var(--primary-dark-color);
 }
 
-.cart-item-action input{
-    width: 40px;
+.cart-item-action .count-quantity{
+    border: 2px solid var(--primary-color);
     font-size: 17px;
+    padding: 5.2px 8px;
 }
 
 .cart-item-action .handleQuantity{
@@ -57,6 +58,8 @@
 
 .cart-item-action .item-action{
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .text-primary{

@@ -17,12 +17,6 @@ const CartItem = ({ product, cart, setCart, decreaseCartItem, increaseCartItem }
   };
 
 
-  const handleChange = e => {
-    console.log(e);
-    console.log({ inputValue: e.target.value });
-    this.onChange(e);
-};
-
   return (
     <div className="cart-item">
       <div className="cart-item-info">
@@ -44,7 +38,7 @@ const CartItem = ({ product, cart, setCart, decreaseCartItem, increaseCartItem }
       <div className="cart-item-action">
         <div className="item-action">
           <button className="handleQuantity" onClick={()=> decreaseCartItem(product)}>-</button>
-          <input type="number" value={quantity} onChange={(e)=> handleChange(e)} />
+          <span className="count-quantity">{quantity}</span>
           <button className="handleQuantity" onClick={()=> increaseCartItem(product)}>+</button>
         </div>
         <button className="remove-item" onClick={() => removeItemFromCart(id)}>
