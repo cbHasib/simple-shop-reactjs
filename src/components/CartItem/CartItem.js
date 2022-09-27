@@ -8,7 +8,7 @@ import noImage from "../../images/no-photo.jpg";
 import { removeFromDb } from "../../utilities/fakedb";
 
 const CartItem = ({ product, cart, setCart }) => {
-  const { img, name, price, shipping, id } = product;
+  const { img, name, price, shipping, id, quantity } = product;
 
   const removeItemFromCart = (itemId) => {
     removeFromDb(itemId);
@@ -30,13 +30,17 @@ const CartItem = ({ product, cart, setCart }) => {
             Price <span className="text-primary text-bold">${price}</span>
           </p>
           <p>
-            Shipping Charge{" "}
-            <span className="text-primary text-bold">${shipping}</span>
+            Shipping Charge <span className="text-primary text-bold">${shipping}</span>
           </p>
         </div>
       </div>
       <div className="cart-item-action">
-        <button onClick={()=> removeItemFromCart(id)}>
+        <div className="item-action">
+          <button className="handleQuantity">-</button>
+          <input type="number" value={quantity}/>
+          <button className="handleQuantity">+</button>
+        </div>
+        <button className="remove-item" onClick={() => removeItemFromCart(id)}>
           <FontAwesomeIcon icon={faTrash} />
         </button>
       </div>

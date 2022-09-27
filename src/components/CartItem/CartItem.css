@@ -32,15 +32,31 @@
 
 .cart-item .cart-item-action{
     margin-right: 15px;
+    display: flex;
+    gap: 20px;
 }
-.cart-item .cart-item-action button{
+.cart-item .cart-item-action .remove-item{
     background-color: var(--primary-color);
     color: white;
     padding: 8px 11px;
     border-radius: 100%;
 }
-.cart-item .cart-item-action button:hover{
+.cart-item .cart-item-action .remove-item:hover{
     background-color: var(--primary-dark-color);
+}
+
+.cart-item-action input{
+    width: 40px;
+    font-size: 17px;
+}
+
+.cart-item-action .handleQuantity{
+    border-radius: 0;
+    color: white;
+}
+
+.cart-item-action .item-action{
+    display: flex;
 }
 
 .text-primary{
@@ -48,4 +64,12 @@
 }
 .text-bold{
     font-weight: bold;
+}
+
+
+@media screen and (max-width: 768px) { 
+    .cart-item{
+        width: 100%;
+    }
+   
 }
