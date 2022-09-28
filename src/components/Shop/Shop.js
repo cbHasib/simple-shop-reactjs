@@ -34,6 +34,7 @@ const Shop = ({ cart, setCart, setMenu, menu }) => {
         savedCart.push(addedProduct);
       }
     }
+    savedCart.sort((a, b) => b.price - a.price);
     setCart(savedCart);
   }, [products, setCart]);
 
@@ -49,6 +50,7 @@ const Shop = ({ cart, setCart, setMenu, menu }) => {
       newCart = [...cart, product];
     }
 
+    newCart.sort((a, b) => b.price - a.price);
     setCart(newCart);
     addToDb(product.id);
   };
@@ -60,17 +62,19 @@ const Shop = ({ cart, setCart, setMenu, menu }) => {
     if (cartCheck.quantity !== 0) {
       product.quantity = cartCheck.quantity - 1;
       newCart = [...restProduct, cartCheck];
-    } 
-    if(product.quantity === 0) {
+    }
+    if (product.quantity === 0) {
       removeFromDb(product.id);
       newCart = [...restProduct];
     }
+
+    newCart.sort((a, b) => b.price - a.price);
 
     setCart(newCart);
     decreaseFromDb(product.id);
   };
   const increaseCartItem = (product) => {
-    addToCart(product)
+    addToCart(product);
   };
 
   return (
